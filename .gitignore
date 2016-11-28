@@ -1,0 +1,11 @@
+.DS_Store
+component/node_modules/
+vue-cli/my-project/node_modules/
+vue-study/node_modules/
+vuex/node_modules/
+dist/
+npm-debug.log
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+.git
