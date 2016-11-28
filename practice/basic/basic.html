@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vue-basic</title>
+        <script src="js/vue.js"></script>
+        <style>
+            h1{
+                color: gray;
+            }
+            h3{
+                color: blue;
+            }
+            .text{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="example">
+            <h1>条件渲染</h1>
+            <h3>#v-if v-show</h3>
+            <div id="demo1">
+                <button @click="flag = !flag">Click(v-if)</button>
+                <button @click="flag2 = !flag2">Click(v-show)</button>
+                <p v-if="flag">v-if!</p>
+                <p v-show="flag2">v-show!</p>
+            </div>
+            <p class="text">区别：两者同样都是控制元素的显示与隐藏，v-if是整个dom结构的有与无得切换，v-show是给dom添加display属性控制元素，dom结构是存在的。</p>
+            <h1>表单控件</h1>
+            <h3>#v-model</h3>
+            <div id="demo2">
+                <p>{{message}}</p>
+                <input v-model="message">
+            </div>
+            <h3>#Checkbox</h3>
+            <div id="demo3">
+                <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+                <label for="jack">Jack</label>
+                <input type="checkbox" id="john" value="John" v-model="checkedNames">
+                <label for="john">John</label>
+                <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+                <label for="mike">Mike</label>
+                <br>
+                <span>Checked names: {{ checkedNames | json }}</span>
+            </div>
+            <h3>#Radio</h3>
+            <div id="demo4">
+                <input type="radio" id="one" value="One" v-model="picked">
+                <label for="one">One</label>
+                <br>
+                <input type="radio" id="two" value="Two" v-model="picked">
+                <label for="two">Two</label>
+                <br>
+                <span>Picked: {{ picked }}</span>
+            </div>
+            <h3>#select 单选</h3>
+            <div id="demo5">
+                <select v-model="selected">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+                <span>Selected: {{ selected }}</span>
+            </div>
+            <h3>#select 多选</h3>
+            <div id="demo6">
+                <select v-model="selected" multiple>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                </select>
+                <span>Selected: {{ selected | json }}</span>
+            </div>
+            <h3>#v-for</h3>
+            <div id="demo7">
+                <ul>
+                    <li v-for="item in items">
+                        {{item.text}}
+                    </li>
+                </ul>
+            </div>
+            <p class="text">指令用于显示数组元素</p>
+            <h3>#v-bind v-on</h3>
+            <div id="demo8">
+                <p v-bind:title="title">请移动鼠标至文字上</p>
+            </div>
+            <p class="text">Mustache 不能在 HTML 属性中使用,所以此时就需要v-bind指令用于绑定 HTML 属性,v-on用于绑定元素需要执行的事件</p>
+        </div>
+    </body>
+    <script>
+        var vm = new Vue({
+            data (){
+                return{
+                    flag: true,
+                    flag2: true,
+                    message:'',
+                    checkedNames: [],
+                    picked: '',
+                    selected: '',
+                    selected: [],
+                    items: [
+                        { text: 'Learn JavaScript' },
+                        { text: 'Learn Vue' },
+                        { text: 'Build something awesome' }
+                    ],
+                    title: '哈哈哈哈！'
+                }
+            }
+        }).$mount('#example');
+    </script>
+</html>
