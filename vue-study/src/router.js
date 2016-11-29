@@ -14,20 +14,12 @@ const scrollBehavior = (to, from, savedPosition) => {
     return savedPosition;
   } else {
     const position = {};
-    // new navigation.
-    // scroll to anchor by returning the selector
     if (to.hash) {
       position.selector = to.hash;
-    }
-    // check if any matched route config has meta that requires scrolling to top
-    if (to.matched.some(m => m.meta.scrollToTop)) {
-      // cords will be used if no selector is provided,
-      // or if the selector didn't match any element.
+    }else {
       position.x = 0;
       position.y = 0;
     }
-    // if the returned position is falsy or an empty object,
-    // will retain current scroll position.
     return position;
   }
 }
@@ -41,7 +33,7 @@ const router = new VueRouter({
             default: Home,
             test: Test
         }, meta: { scrollToTop: true }},
-        {name: 'basic', path: '/basic', component: Basic, meta: { scrollToTop: true },
+        {name: 'basic', path: '/basic', component: Basic,
          children: [
             {
               path: '',
@@ -52,7 +44,7 @@ const router = new VueRouter({
               component: Test
             }]
         },
-        {path: '/advanced', component: Advanced, meta: { scrollToTop: true }},
+        {path: '/advanced', component: Advanced},
         /*redirect: { name: 'basic' }*///重定向
         {path: '/b', alias: '/basic', component: Basic}//别名
     ]

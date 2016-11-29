@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <plj-main>
-            <p slot="main">分割线</p>
+            <p slot="main">---------------------------------分割线------------------</p>
         </plj-main>
         <plj-header></plj-header>
     </div>
