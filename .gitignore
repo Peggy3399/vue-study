@@ -2,7 +2,7 @@
 component/node_modules/
 vue-cli/my-project/node_modules/
 vue-study/node_modules/
-vuex/node_modules/
+vuex/my-project/node_modules/
 dist/
 npm-debug.log
 vue-cli/test/unit/coverage

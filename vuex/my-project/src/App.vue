@@ -1,21 +1,22 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png">
-    <hello></hello> -->
-    <plj-timer></plj-timer>
+    <product-list></product-list>
+    <hr>
+    <cart></cart>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
-import Timer from './components/Timer.vue'
+  import ProductList from './components/ProductList.vue';
+  import Cart from './components/Cart.vue';
 
-export default {
-  name: 'app',
-  components: {
-    'plj-timer': Timer
+  export default {
+    name: 'app',
+    components: {
+      ProductList,
+      Cart
+    }
   }
-}
 </script>
 
 <style>

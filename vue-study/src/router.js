@@ -44,7 +44,7 @@ const router = new VueRouter({
               component: Test
             }]
         },
-        {path: '/advanced', component: Advanced},
+        {path: '/advanced', component: Advanced,redirect: { name: 'basic' }},
         /*redirect: { name: 'basic' }*///重定向
         {path: '/b', alias: '/basic', component: Basic}//别名
     ]
